@@ -35,7 +35,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stm32_lcd.h"
+#include "st7789h2.h"
+#include "st7789h2_reg.h"
+#include "bsp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,14 +59,15 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+FlagStatus LcdInitialized = RESET;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+static void SystemHardwareInit(void);
+static void Display_DemoDescription(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -103,28 +107,32 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_ADC1_Init();
-  MX_DFSDM1_Init();
-  MX_FMC_Init();
-  MX_I2C1_Init();
-  MX_ICACHE_Init();
-  MX_LPUART1_UART_Init();
-  MX_USART1_UART_Init();
-  MX_OCTOSPI1_Init();
-  MX_SAI1_Init();
-  MX_SDMMC1_SD_Init();
-  MX_SPI1_Init();
-  MX_TIM4_Init();
-  MX_TIM16_Init();
-  MX_TIM17_Init();
-  MX_UCPD1_Init();
-  MX_USB_PCD_Init();
+//	MX_FMC_Init();
+//  MX_ADC1_Init();
+//  MX_DFSDM1_Init();
+//  MX_FMC_Init();
+//  MX_I2C1_Init();
+//  MX_ICACHE_Init();
+//  MX_LPUART1_UART_Init();
+//  MX_USART1_UART_Init();
+//  MX_OCTOSPI1_Init();
+//  //MX_SAI1_Init();
+//  MX_SDMMC1_SD_Init();
+//  MX_SPI1_Init();
+//  MX_TIM4_Init();
+//  MX_TIM16_Init();
+//  MX_TIM17_Init();
+//  MX_UCPD1_Init();
+//  MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
+	
   /* USER CODE BEGIN WHILE */
+	SystemHardwareInit();
+	Display_DemoDescription();
   while (1)
   {
     /* USER CODE END WHILE */
@@ -224,7 +232,108 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+/**
+  * @brief  Reset ST7789H2 and activate backlight.
+  * @retval None.
+  */
 
+static void SystemHardwareInit(void)
+{
+  /* Initialize the LCD */
+  if (LcdInitialized != SET)
+  {
+    LCD_UTILS_Drv_t lcdDrv;
+
+    /* Initialize the LCD */
+    if (BSP_LCD_Init(0, LCD_ORIENTATION_PORTRAIT) != BSP_ERROR_NONE)
+    {
+      Error_Handler();
+    }
+
+    /* Set UTIL_LCD functions */
+    lcdDrv.DrawBitmap  = BSP_LCD_DrawBitmap;
+    lcdDrv.FillRGBRect = BSP_LCD_FillRGBRect;
+    lcdDrv.DrawHLine   = BSP_LCD_DrawHLine;
+    lcdDrv.DrawVLine   = BSP_LCD_DrawVLine;
+    lcdDrv.FillRect    = BSP_LCD_FillRect;
+    lcdDrv.GetPixel    = BSP_LCD_ReadPixel;
+    lcdDrv.SetPixel    = BSP_LCD_WritePixel;
+    lcdDrv.GetXSize    = BSP_LCD_GetXSize;
+    lcdDrv.GetYSize    = BSP_LCD_GetYSize;
+    lcdDrv.SetLayer    = BSP_LCD_SetActiveLayer;
+    lcdDrv.GetFormat   = BSP_LCD_GetFormat;
+    UTIL_LCD_SetFuncDriver(&lcdDrv);
+
+    /* Clear the LCD */
+    UTIL_LCD_Clear(UTIL_LCD_COLOR_WHITE);
+
+    /* Set the display on */
+    if (BSP_LCD_DisplayOn(0) != BSP_ERROR_NONE)
+    {
+      Error_Handler();
+    }
+
+    LcdInitialized = SET;
+  }
+
+//  /* Initialize the TouchScreen */
+//  if (TsInitialized != SET)
+//  {
+//    TS_Init_t TsInit;
+
+//    /* Initialize the TouchScreen */
+//    TsInit.Width       = 240;
+//    TsInit.Height      = 240;
+//    TsInit.Orientation = TS_ORIENTATION_PORTRAIT;
+//    TsInit.Accuracy    = 10;
+//    if (BSP_TS_Init(0, &TsInit) != BSP_ERROR_NONE)
+//    {
+//      Error_Handler();
+//    }
+
+//    /* Configure TS interrupt */
+//    if (BSP_TS_EnableIT(0) != BSP_ERROR_NONE)
+//    {
+//      Error_Handler();
+//    }
+
+//    TsInitialized = SET;
+//  }
+}
+
+static void Display_DemoDescription(void)
+{
+  char desc[60];
+
+  /* Set font */
+  UTIL_LCD_SetFont(&Font20);
+
+  /* Clear the LCD */
+  UTIL_LCD_Clear(UTIL_LCD_COLOR_WHITE);
+
+  /* Set the LCD Text Color */
+  UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_DARKBLUE);
+  UTIL_LCD_SetBackColor(UTIL_LCD_COLOR_WHITE);
+
+  /* Display LCD messages */
+  UTIL_LCD_DisplayStringAt(0, 10, (uint8_t *)"STM32L562E-DK BSP", CENTER_MODE);
+  UTIL_LCD_DisplayStringAt(0, 35, (uint8_t *)"drivers example", CENTER_MODE);
+
+  /* Draw Bitmap */
+  //UTIL_LCD_DrawBitmap(80, 65, (uint8_t *)stlogo);
+
+  UTIL_LCD_SetFont(&Font8);
+  UTIL_LCD_DisplayStringAt(0, 220, (uint8_t *)"Copyright (c) STMicroelectronics 2019", CENTER_MODE);
+
+  UTIL_LCD_SetFont(&Font12);
+  UTIL_LCD_FillRect(0, 145, 240, 50, UTIL_LCD_COLOR_BLUE);
+  UTIL_LCD_SetTextColor(UTIL_LCD_COLOR_WHITE);
+  UTIL_LCD_SetBackColor(UTIL_LCD_COLOR_BLUE);
+  UTIL_LCD_DisplayStringAt(0, 150, (uint8_t *)"Press User push-button", CENTER_MODE);
+  UTIL_LCD_DisplayStringAt(0, 165, (uint8_t *)"to start :", CENTER_MODE);
+  //sprintf(desc,"%s example", BSP_examples[DemoIndex].DemoName);
+  UTIL_LCD_DisplayStringAt(0, 180, (uint8_t *)desc, CENTER_MODE);
+}
 /* USER CODE END 4 */
 
 /**

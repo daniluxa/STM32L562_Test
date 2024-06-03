@@ -1,0 +1,1 @@
+stm32l562_test\startup_stm32l562xx.o: startup_stm32l562xx.s

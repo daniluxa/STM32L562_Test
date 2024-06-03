@@ -1,0 +1,230 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.28.0.0
+Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: fwqe User, wq, LIC=KRMW3-ARF5Q-CXLU6-D8U51-2PW12-29ZLS
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.28.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.12
+Assembler:       Armasm.exe V6.12
+Linker/Locator:  ArmLink.exe V6.12
+Library Manager: ArmAr.exe V6.12
+Hex Converter:   FromElf.exe V6.12
+CPU DLL:         
+Dialog DLL:      
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.6.0
+Dialog DLL:      TCM.DLL V1.36.2.0
+ 
+<h2>Project:</h2>
+C:\Users\shumkin\Documents\GitHub\Tests\STM32L562_Test\STM32L562_Test\MDK-ARM\STM32L562_Test.uvprojx
+Project File Date:  06/03/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.12', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'STM32L562_Test'
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(60): warning: 'ST7789H2_SLEEP_IN' macro redefined [-Wmacro-redefined]
+#define ST7789H2_SLEEP_IN                     0x10U
+        ^
+../Core/Inc\st7789h2.h(77): note: previous definition is here
+#define ST7789H2_SLEEP_IN           0x10
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(61): warning: 'ST7789H2_SLEEP_OUT' macro redefined [-Wmacro-redefined]
+#define ST7789H2_SLEEP_OUT                    0x11U
+        ^
+../Core/Inc\st7789h2.h(78): note: previous definition is here
+#define ST7789H2_SLEEP_OUT          0x11
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(67): warning: 'ST7789H2_DISPLAY_OFF' macro redefined [-Wmacro-redefined]
+#define ST7789H2_DISPLAY_OFF                  0x28U
+        ^
+../Core/Inc\st7789h2.h(98): note: previous definition is here
+#define ST7789H2_DISPLAY_OFF        0xBD
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(68): warning: 'ST7789H2_DISPLAY_ON' macro redefined [-Wmacro-redefined]
+#define ST7789H2_DISPLAY_ON                   0x29U
+        ^
+../Core/Inc\st7789h2.h(81): note: previous definition is here
+#define ST7789H2_DISPLAY_ON         0x29
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(69): warning: 'ST7789H2_CASET' macro redefined [-Wmacro-redefined]
+#define ST7789H2_CASET                        0x2AU
+        ^
+../Core/Inc\st7789h2.h(84): note: previous definition is here
+#define ST7789H2_CASET              0x2A
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(70): warning: 'ST7789H2_RASET' macro redefined [-Wmacro-redefined]
+#define ST7789H2_RASET                        0x2BU
+        ^
+../Core/Inc\st7789h2.h(85): note: previous definition is here
+#define ST7789H2_RASET              0x2B
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(71): warning: 'ST7789H2_WRITE_RAM' macro redefined [-Wmacro-redefined]
+#define ST7789H2_WRITE_RAM                    0x2CU
+        ^
+../Core/Inc\st7789h2.h(82): note: previous definition is here
+#define ST7789H2_WRITE_RAM          0x2C
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(72): warning: 'ST7789H2_READ_RAM' macro redefined [-Wmacro-redefined]
+#define ST7789H2_READ_RAM                     0x2EU
+        ^
+../Core/Inc\st7789h2.h(83): note: previous definition is here
+#define ST7789H2_READ_RAM           0x2E
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(73): warning: 'ST7789H2_VSCRDEF' macro redefined [-Wmacro-redefined]
+#define ST7789H2_VSCRDEF                      0x33U /* Vertical Scroll Definition */
+        ^
+../Core/Inc\st7789h2.h(86): note: previous definition is here
+#define ST7789H2_VSCRDEF            0x33 /* Vertical Scroll Definition */
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(77): warning: 'ST7789H2_VSCSAD' macro redefined [-Wmacro-redefined]
+#define ST7789H2_VSCSAD                       0x37U /* Vertical Scroll Start Address of RAM */
+        ^
+../Core/Inc\st7789h2.h(87): note: previous definition is here
+#define ST7789H2_VSCSAD             0x37 /* Vertical Scroll Start Address of RAM */   
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(78): warning: 'ST7789H2_IDLE_MODE_OFF' macro redefined [-Wmacro-redefined]
+#define ST7789H2_IDLE_MODE_OFF                0x38U
+        ^
+../Core/Inc\st7789h2.h(90): note: previous definition is here
+#define ST7789H2_IDLE_MODE_OFF      0x38
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(79): warning: 'ST7789H2_IDLE_MODE_ON' macro redefined [-Wmacro-redefined]
+#define ST7789H2_IDLE_MODE_ON                 0x39U
+        ^
+../Core/Inc\st7789h2.h(91): note: previous definition is here
+#define ST7789H2_IDLE_MODE_ON       0x39
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(80): warning: 'ST7789H2_COLOR_MODE' macro redefined [-Wmacro-redefined]
+#define ST7789H2_COLOR_MODE                   0x3AU
+        ^
+../Core/Inc\st7789h2.h(92): note: previous definition is here
+#define ST7789H2_COLOR_MODE         0x3A
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(99): warning: 'ST7789H2_PORCH_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_PORCH_CTRL                   0xB2U
+        ^
+../Core/Inc\st7789h2.h(95): note: previous definition is here
+#define ST7789H2_PORCH_CTRL         0xB2
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(102): warning: 'ST7789H2_GATE_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_GATE_CTRL                    0xB7U
+        ^
+../Core/Inc\st7789h2.h(96): note: previous definition is here
+#define ST7789H2_GATE_CTRL          0xB7
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(105): warning: 'ST7789H2_VCOM_SET' macro redefined [-Wmacro-redefined]
+#define ST7789H2_VCOM_SET                     0xBBU
+        ^
+../Core/Inc\st7789h2.h(97): note: previous definition is here
+#define ST7789H2_VCOM_SET           0xBB
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(108): warning: 'ST7789H2_LCM_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_LCM_CTRL                     0xC0U
+        ^
+../Core/Inc\st7789h2.h(99): note: previous definition is here
+#define ST7789H2_LCM_CTRL           0xC0
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(110): warning: 'ST7789H2_VDV_VRH_EN' macro redefined [-Wmacro-redefined]
+#define ST7789H2_VDV_VRH_EN                   0xC2U
+        ^
+../Core/Inc\st7789h2.h(100): note: previous definition is here
+#define ST7789H2_VDV_VRH_EN         0xC2
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(112): warning: 'ST7789H2_VDV_SET' macro redefined [-Wmacro-redefined]
+#define ST7789H2_VDV_SET                      0xC4U
+        ^
+../Core/Inc\st7789h2.h(101): note: previous definition is here
+#define ST7789H2_VDV_SET            0xC4
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(113): warning: 'ST7789H2_VCOMH_OFFSET_SET' macro redefined [-Wmacro-redefined]
+#define ST7789H2_VCOMH_OFFSET_SET             0xC5U
+        ^
+../Core/Inc\st7789h2.h(102): note: previous definition is here
+#define ST7789H2_VCOMH_OFFSET_SET   0xC5
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(114): warning: 'ST7789H2_FR_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_FR_CTRL                      0xC6U
+        ^
+../Core/Inc\st7789h2.h(103): note: previous definition is here
+#define ST7789H2_FR_CTRL            0xC6
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(119): warning: 'ST7789H2_POWER_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_POWER_CTRL                   0xD0U
+        ^
+../Core/Inc\st7789h2.h(104): note: previous definition is here
+#define ST7789H2_POWER_CTRL         0xD0
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(122): warning: 'ST7789H2_PV_GAMMA_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_PV_GAMMA_CTRL                0xE0U /* Positive voltage */
+        ^
+../Core/Inc\st7789h2.h(105): note: previous definition is here
+#define ST7789H2_PV_GAMMA_CTRL      0xE0
+        ^
+../Core/Src/main.c(40): warning: In file included from...
+../st7789h2\st7789h2_reg.h(123): warning: 'ST7789H2_NV_GAMMA_CTRL' macro redefined [-Wmacro-redefined]
+#define ST7789H2_NV_GAMMA_CTRL                0xE1U /* Negative voltage */
+        ^
+../Core/Inc\st7789h2.h(106): note: previous definition is here
+#define ST7789H2_NV_GAMMA_CTRL      0xE1
+        ^
+24 warnings generated.
+compiling main.c...
+linking...
+Program Size: Code=24674 RO-data=6422 RW-data=112 ZI-data=25008  
+FromELF: creating hex file...
+"STM32L562_Test\STM32L562_Test.axf" - 0 Error(s), 24 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32L5xx_DFP.1.4.0.pack
+                Keil.STM32L5xx_DFP.1.4.0
+                STMicroelectronics STM32L5 Series Device Support
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_STM32L562_Test
+  C:\Users\shumkin\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include
+  C:\Users\shumkin\AppData\Local\Arm\Packs\Keil\STM32L5xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32L5xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+      Include file:  CMSIS\Core\Include\tz_context.h
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
